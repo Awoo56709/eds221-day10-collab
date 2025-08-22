@@ -1,0 +1,15 @@
+---
+title: "fiddler-crab-sizes"
+format: html
+editor: visual
+---
+
+```{r}
+library(lterdatasampler)
+
+```
+
+```{r}
+head(pie_crab)
+```
+
