@@ -2,8 +2,6 @@
 title: "fiddler-crab-sizes"
 format: html
 editor: visual
-
-  
 ---
 
 ```{r}
@@ -29,7 +27,6 @@ pie_crab %>% ggplot(aes(x = size, y = latitude)) + geom_point()
 head(pie_crab)
 ```
 
-
 ```{r}
 
 summary_table <- pie_crab %>%
@@ -43,3 +40,17 @@ summary_table <- pie_crab %>%
 
 ```
 
+# better summary table
+
+```{r}
+library(kableExtra)
+
+pie_crab %>%
+  group_by(site) %>%
+  summarise(
+    mean_width = round(mean(size, na.rm = TRUE), 2),
+    sd_width = sd(size, na.rm = TRUE),
+    n = n()
+  )  %>% 
+  kable(col.names = c("Site", "Mean Width (cm)", "Standard Width (cm)", "Numer of Crabs")) %>% kable_styling(bootstrap_options = "striped" )
+```
