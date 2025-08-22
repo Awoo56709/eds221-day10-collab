@@ -2,11 +2,13 @@
 title: "fiddler-crab-sizes"
 format: html
 editor: visual
+
+  
 ---
 
 ```{r}
 library(lterdatasampler)
-
+library(tidyverse)
 ```
 
 ```{r}
@@ -22,3 +24,22 @@ pie_crab %>% ggplot(aes(x = size, y = latitude)) + geom_point()
 ```
 
 # Graphg created NOW
+
+```{r}
+head(pie_crab)
+```
+
+
+```{r}
+
+summary_table <- pie_crab %>%
+  group_by(site) %>%
+  summarise(
+    mean_width = round(mean(size, na.rm = TRUE), 2),
+    sd_width = sd(size, na.rm = TRUE),
+    n = n()
+  )
+
+
+```
+
