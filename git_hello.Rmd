@@ -6,3 +6,12 @@ output: html_document
 ---
 
 #yo!
+
+
+```{r}
+library(lterdatasampler)
+```
+```{r}
+head(pie_crab)
+```
+
