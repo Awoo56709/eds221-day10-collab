@@ -13,3 +13,10 @@ library(lterdatasampler)
 head(pie_crab)
 ```
 
+```{r}
+# , create an exploratory (unfinalized) plot of fiddler crab carapace widths observed at the different latitudes
+library(tidyverse)
+unique(pie_crab$latitude)
+pie_crab %>% ggplot(aes(x = size, y = latitude)) + geom_point()
+
+```
